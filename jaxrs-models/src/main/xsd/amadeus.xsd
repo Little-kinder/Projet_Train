@@ -9,6 +9,29 @@
 			<xsd:element name="arrivalTime" type="xsd:dateTime"></xsd:element>
 		</xsd:sequence>
 	</xsd:complexType>
+	
+	<xsd:element name="arret" type="arret"></xsd:element>
+	<xsd:complexType name="arret">
+		<xsd:sequence>
+			<xsd:element name="id_arret" type="xsd:int"></xsd:element>
+			<xsd:element name="id_train" type="xsd:int"></xsd:element>
+			<xsd:element name="id_trainphysique" type="xsd:int"></xsd:element>
+			<xsd:element name="id_gare" type="xsd:int"></xsd:element>
+			<xsd:element name="numero_voie" type="xsd:int"></xsd:element>
+			<xsd:element name="arrivalTime" type="xsd:dateTime"></xsd:element>
+			<xsd:element name="departureTime" type="xsd:dateTime"></xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<xsd:element name="gare" type="gare"></xsd:element>
+	<xsd:complexType name="gare">
+		<xsd:sequence>
+			<xsd:element name="id_gare" type="xsd:int"></xsd:element>
+			<xsd:element name="ville" type="xsd:string"></xsd:element>
+			<xsd:element name="localisation" type="xsd:string"></xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	
 </xsd:schema>      	
   
   
