@@ -7,6 +7,7 @@
 		<xsd:sequence>
 			<xsd:element name="number" type="xsd:int"></xsd:element>
 			<xsd:element name="arrivalTime" type="xsd:dateTime"></xsd:element>
+			<xsd:element name="etat" type="xsd:boolean"></xsd:element>
 		</xsd:sequence>
 	</xsd:complexType>
 	
