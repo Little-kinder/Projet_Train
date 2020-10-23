@@ -3,6 +3,7 @@ package fr.pantheonsorbonne.ufr27.miage.endpoints;
 import java.util.List;
 
 import javax.ws.rs.Consumes;
+import javax.ws.rs.GET;
 import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
@@ -18,13 +19,17 @@ import fr.pantheonsorbonne.ufr27.miage.Train;
 @Path("api/train/{id}")
 public class TrainResource {
 	int idTrain;
-	
+	Train t;
+	boolean etat;
+	int nbpassager;
 	public TrainResource(@PathParam("id") int idTrain) {
 		this.idTrain = idTrain;
-		
+		t = new ObjectFactory().createTrain();
+		t.setIdTrain(idTrain);
+		t.setNbPassager(0);
 	}
 
-	@PUT
+	/*@PUT
 	@Path("location")
 	@Consumes(MediaType.TEXT_PLAIN)
 	public Response putTrainLocation(String gpsCoordinate) throws DatatypeConfigurationException {
@@ -36,12 +41,13 @@ public class TrainResource {
 		t.setHeureDepart(date1);
 		t.setIdTrain(idTrain);
 		return Response.ok(t).build();
-	}
+	}*/
 	
-	@PUT
+	@GET
 	@Path("etat")
-	public Response putTrainEtat() throws DatatypeConfigurationException {
-		return Response.ok().build();
+	public Response getTrainEtat() throws DatatypeConfigurationException {	
+		etat = t.isEtat();
+		return Response.ok(etat).build();
 	}
 	
 	@PUT
@@ -62,9 +68,10 @@ public class TrainResource {
 		return Response.ok().build();
 	}
 	
-	@PUT
+	@GET
 	@Path("nbpas")
 	public Response putTrainnbPassager() throws DatatypeConfigurationException {
-		return Response.ok().build();
+		nbpassager=t.getNbPassager();
+		return Response.ok(nbpassager).build();
 	}
 }
